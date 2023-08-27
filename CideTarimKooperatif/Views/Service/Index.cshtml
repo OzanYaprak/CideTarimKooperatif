@@ -1,6 +1,7 @@
 ﻿@model List<Service>
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 
@@ -17,13 +18,13 @@
                 <tr>
                     <td>@item.ServiceID</td>
                     <td>@item.ServiceTitle</td>
-                    <td>
-                        <a asp-controller="Service" asp-action="DeleteService" asp-route-id="@item.ServiceID" class="btn btn-block btn-danger">Sil</a>
-                        <a asp-controller="Service" asp-action="EditService" asp-route-id="@item.ServiceID" class="ms-2 btn btn-block btn-warning">Güncelle</a>
+                    <td class="text-center">
+                        <a asp-controller="Service" asp-action="DeleteService" asp-route-id="@item.ServiceID" class="btn btn-rounded btn-block btn-danger">Sil</a>
+                        <a asp-controller="Service" asp-action="EditService" asp-route-id="@item.ServiceID" class="ms-2 btn btn-rounded btn-block btn-warning">Güncelle</a>
                     </td>
                 </tr>
             }
         </table>
-        <a asp-controller="Service" asp-action="AddService" class="btn btn-block btn-success">Ekle</a>
+        <a asp-controller="Service" asp-action="AddService" class="btn btn-rounded btn-block btn-success mt-3" style="width:100%;">Ekle</a>
     </div>
 </div>

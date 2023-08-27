@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 
@@ -29,7 +29,8 @@
                     <input asp-for="ServiceImage" type="text" class="form-control" id="serviceimage">
                     <span asp-validation-for="ServiceImage" class="text-danger"></span>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3" style="width: 100%;">Kaydet</button>
+                <button type="submit" class="btn btn-rounded btn-primary mt-3 text-white" style="width: 100%;">Kaydet</button>
+                <a asp-controller="Service" asp-action="Index" class="btn btn-rounded btn-info mt-3 text-white" style="width: 100%;">Vazgeç</a>
             </form>
         </div>
     </div>
