@@ -1,0 +1,29 @@
+﻿@model List<Service>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>Başlık</th>
+                <th>İşlemler</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ServiceID</td>
+                    <td>@item.ServiceTitle</td>
+                    <td>
+                        <a asp-controller="Service" asp-action="DeleteService" asp-route-id="@item.ServiceID" class="btn btn-block btn-danger">Sil</a>
+                        <a asp-controller="Service" asp-action="EditService" asp-route-id="@item.ServiceID" class="ms-2 btn btn-block btn-warning">Güncelle</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <a asp-controller="Service" asp-action="AddService" class="btn btn-block btn-success">Ekle</a>
+    </div>
+</div>
