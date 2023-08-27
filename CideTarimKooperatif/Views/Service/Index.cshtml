@@ -8,17 +8,17 @@
 <div class="card">
     <div class="card-body">
         <table class="table table-bordered">
-            <tr>
+            <tr class="text-center">
                 <th>#</th>
                 <th>Başlık</th>
                 <th>İşlemler</th>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
+                <tr class="text-center">
                     <td>@item.ServiceID</td>
                     <td>@item.ServiceTitle</td>
-                    <td class="text-center">
+                    <td>
                         <a asp-controller="Service" asp-action="DeleteService" asp-route-id="@item.ServiceID" class="btn btn-rounded btn-block btn-danger">Sil</a>
                         <a asp-controller="Service" asp-action="EditService" asp-route-id="@item.ServiceID" class="ms-2 btn btn-rounded btn-block btn-warning">Güncelle</a>
                     </td>

@@ -1,0 +1,56 @@
+﻿@model Team
+@{
+    ViewData["Title"] = "AddNewTeamMember";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <h4 class="text-center mt-4">Yeni hizmet girişi</h4>
+        <div class="card-body">
+            <form asp-controller="Team" asp-action="AddNewTeamMember" method="post">
+                @*<div asp-validation-summary="All"></div>*@
+
+                <div class="form-group">
+                    <label asp-for="PersonName">Personel Ad/Soyad</label>
+                    <input asp-for="PersonName" type="text" class="form-control" id="personname">
+                    <span asp-validation-for="PersonName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PersonTitle">Personel Ünvanı</label>
+                    <input asp-for="PersonTitle" type="text" class="form-control" id="persontitle">
+                    <span asp-validation-for="PersonTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PersonImageURL">Personel Fotoğrafı</label>
+                    <input asp-for="PersonImageURL" type="text" class="form-control" id="personimageurl">
+                    <span asp-validation-for="PersonImageURL" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PersonFacebookURL">Personel Facebook Hesabı</label>
+                    <input asp-for="PersonFacebookURL" type="text" class="form-control" id="personfacebookurl">
+                    <span asp-validation-for="PersonFacebookURL" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PersonInstagramURL">Personel Instagram Hesabı</label>
+                    <input asp-for="PersonInstagramURL" type="text" class="form-control" id="personinstagramurl">
+                    <span asp-validation-for="PersonInstagramURL" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PersonTwitterURL">Personel Twitter Hesabı</label>
+                    <input asp-for="PersonTwitterURL" type="text" class="form-control" id="persontwitterurl">
+                    <span asp-validation-for="PersonTwitterURL" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PersonWebsiteURL">Personel Kişisel Web Sitesi</label>
+                    <input asp-for="PersonWebsiteURL" type="text" class="form-control" id="personwebsiteurl">
+                    <span asp-validation-for="PersonWebsiteURL" class="text-danger"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-rounded btn-primary mt-3 text-white" style="width: 100%;">Kaydet</button>
+                <a asp-controller="Team" asp-action="Index" class="btn btn-rounded btn-info mt-3 text-white" style="width: 100%;">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>
