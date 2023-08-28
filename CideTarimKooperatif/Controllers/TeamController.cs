@@ -1,6 +1,9 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace CideTarimKooperatif.Controllers
 {
@@ -33,8 +36,23 @@ namespace CideTarimKooperatif.Controllers
         [HttpPost]
         public IActionResult AddNewTeamMember(Team team)
         {
-            _teamService.Add(team);
-            return RedirectToAction("Index");
+            TeamValidator teamValidator = new TeamValidator();
+            ValidationResult validationResult = teamValidator.Validate(team);
+
+            if (validationResult.IsValid)
+            {
+                _teamService.Add(team);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                } 
+            }
+            return View();
+
         }
     }
 }
