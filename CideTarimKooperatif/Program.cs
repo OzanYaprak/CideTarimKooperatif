@@ -21,6 +21,12 @@ namespace CideTarimKooperatif
             builder.Services.AddScoped<ITeamService, TeamManager>();
             builder.Services.AddScoped<ITeamDAL, EFTeamDAL>();
 
+            builder.Services.AddScoped<IAnnouncementService, AnnouncementManager>();
+            builder.Services.AddScoped<IAnnouncementDAL, EFAnnouncementDAL>();
+
+            builder.Services.AddScoped<IImageService, ImageManager>();
+            builder.Services.AddScoped<IImageDAL, EFImageDAL>();
+
             builder.Services.AddDbContext<CideTarýmDB>();
 
             var app = builder.Build();

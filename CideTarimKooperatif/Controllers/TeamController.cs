@@ -40,8 +40,8 @@ namespace CideTarimKooperatif.Controllers
         [HttpPost]
         public IActionResult AddNewTeamMember(Team team)
         {
-            TeamValidator teamValidator = new TeamValidator();
-            ValidationResult validationResult = teamValidator.Validate(team);
+            TeamValidator validationRules = new TeamValidator();
+            ValidationResult validationResult = validationRules.Validate(team);
 
             if (validationResult.IsValid)
             {

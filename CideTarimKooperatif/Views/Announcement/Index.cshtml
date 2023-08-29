@@ -1,0 +1,46 @@
+﻿@model List<Announcement>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr class="text-center">
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-success text-center" role="alert">
+                        @ViewBag.Error
+                    </div>
+                }
+                else
+                {
+                    <th>#</th>
+                    <th>Başlık</th>
+                    <th>Tarih</th>
+                    <th>İşlemler</th>
+                    <th>Aktif/Pasif</th>
+                }
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr class="text-center">
+                    <td>@item.AnnouncementID</td>
+                    <td>@item.AnnouncementTitle</td>
+                    <td>@item.EntryDate</td>
+                    <td>
+                        <a asp-controller="Announcement" asp-action="DeleteAnnouncement" asp-route-id="@item.AnnouncementID" class="btn btn-rounded btn-block btn-danger">Sil</a>
+                        <a asp-controller="Announcement" asp-action="EditAnnouncement" asp-route-id="@item.AnnouncementID" class="ms-2 btn btn-rounded btn-block btn-warning">Güncelle</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Announcement" asp-action="DeleteAnnouncement" asp-route-id="@item.AnnouncementID" class="btn btn-rounded btn-block btn-success">Aktif</a>
+                        <a asp-controller="Announcement" asp-action="EditAnnouncement" asp-route-id="@item.AnnouncementID" class="ms-2 btn btn-rounded btn-block btn-danger">Pasif</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <a asp-controller="Announcement" asp-action="AddAnnouncement" class="btn btn-rounded btn-block btn-success mt-3" style="width:100%;">Ekle</a>
+    </div>
+</div>
+
