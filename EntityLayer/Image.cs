@@ -13,5 +13,6 @@ namespace EntityLayer.Concrete
         public int ImageID { get; set; }
         public string ImageTitle { get; set; }
         public string ImageDescription { get; set; }
+        public string ImageURl { get; set; }
     }
 }

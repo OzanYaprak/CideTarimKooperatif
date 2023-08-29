@@ -18,6 +18,7 @@
                 else
                 {
                     <th>#</th>
+                    <th>Görsel</th>
                     <th>Başlık</th>
                     <th>Açıklama</th>
                     <th>İşlemler</th>
@@ -27,6 +28,9 @@
             {
                 <tr class="text-center">
                     <td>@item.ImageID</td>
+                    <td>
+                        <img src="@item.ImageURl" alt="resim" />
+                    </td>
                     <td>@item.ImageTitle</td>
                     <td>@item.ImageDescription</td>
                     <td>
@@ -36,6 +40,6 @@
                 </tr>
             }
         </table>
-        <a asp-controller="Image" asp-action="AddImage" class="btn btn-rounded btn-block btn-success mt-3" style="width:100%;">Ekle</a>
+        <a asp-controller="Image" asp-action="AddNewImage" class="btn btn-rounded btn-block btn-success mt-3" style="width:100%;">Ekle</a>
     </div>
 </div>
