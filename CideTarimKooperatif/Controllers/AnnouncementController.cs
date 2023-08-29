@@ -44,6 +44,12 @@ namespace CideTarimKooperatif.Controllers
             AnnouncementValidator validationRules = new AnnouncementValidator();
             ValidationResult validationResult = validationRules.Validate(announcement);
 
+            //announcement.EntryDate = DateTime.Parse(DateTime.Now.ToShortDateString());  <----- BU KISIM BİR ALT SATIRINDA YAZILAN KOD SATIRI YERİNE KULLANILABİLİNİR FAKAT BURAYI KULLANIRSAK INDEX İÇİNDEKİ <td>@item.EntryDate.Date.ToShortDateString()</td> SATIRINI <td>@item.EntryDate</td> OLARAK DÜZENLEMEK GEREKİR.
+            announcement.EntryDate = DateTime.Now;
+            announcement.AnnouncementStatus = false;
+
+
+
             //if(validationResult.IsValid)
             //veya yerine aşağıdaki gibi de yazılabilinir
             if (validationResult != null)
