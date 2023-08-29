@@ -1,0 +1,53 @@
+﻿@model List<Address>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title text-center">Adres Bilgisi</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="text-center">
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-success text-center" role="alert">
+                                @ViewBag.Error
+                            </div>
+                        }
+                        else
+                        {
+                            <tr>
+                                <th>Adres Kısım-1</th>
+                                <th>Adres Kısım-2</th>
+                                <th>Adres Kısım-3</th>
+                                <th>Adres Telefon</th>
+                                <th>GoogleMapsURL</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        }
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="text-center">
+                                <td>@item.AddressDescFirst</td>
+                                <td>@item.AddressDescSecond</td>
+                                <td>@item.AddressDescThird</td>
+                                <td>@item.AddressDescFour</td>
+                                <td>@item.GoogleMapsURL</td>
+                                <td>
+                                    <a asp-controller="Address" asp-action="EditAddress" asp-route-id="@item.AddressID" class="ms-2 btn btn-rounded btn-block btn-warning">Güncelle</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

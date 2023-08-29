@@ -1,0 +1,47 @@
+﻿@model Address
+@{
+    ViewData["Title"] = "EditAddress";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <h4 class="text-center mt-4">Yeni personel girişi</h4>
+        <div class="card-body">
+            <form asp-controller="Address" asp-action="EditAddress" method="post">
+                @*<div asp-validation-summary="All"></div>*@
+                <input asp-for="@Model.AddressID" type="hidden" />
+
+                <div class="form-group">
+                    <label asp-for="AddressDescFirst">Adres Açıklama-1</label>
+                    <input asp-for="AddressDescFirst" type="text" class="form-control" id="addressdescfirst">
+                    <span asp-validation-for="AddressDescFirst" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AddressDescSecond">Adres Açıklama-2</label>
+                    <input asp-for="AddressDescSecond" type="text" class="form-control" id="addressdescsecond">
+                    <span asp-validation-for="AddressDescSecond" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AddressDescThird">Adres Açıklama-3</label>
+                    <input asp-for="AddressDescThird" type="text" class="form-control" id="addressdescthird">
+                    <span asp-validation-for="AddressDescThird" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AddressDescFour">Adres Açıklama-4</label>
+                    <input asp-for="AddressDescFour" type="text" class="form-control" id="addressdescfour">
+                    <span asp-validation-for="AddressDescFour" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GoogleMapsURL">Google Maps Bağlantısı</label>
+                    <input asp-for="GoogleMapsURL" type="text" class="form-control" id="googlemapsURL">
+                    <span asp-validation-for="GoogleMapsURL" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-rounded btn-primary mt-3 text-white" style="width: 100%;">Kaydet</button>
+                <a asp-controller="Address" asp-action="Index" class="btn btn-rounded btn-info mt-3 text-white" style="width: 100%;">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>
+
