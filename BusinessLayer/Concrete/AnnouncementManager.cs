@@ -19,6 +19,16 @@ namespace BusinessLayer.Concrete
             _announcementDAL.Add(entity);
         }
 
+        public void AnnouncementStatusToFalse(int id)
+        {
+            _announcementDAL.AnnouncementStatusToFalse(id);
+        }
+
+        public void AnnouncementStatusToTrue(int id)
+        {
+            _announcementDAL.AnnouncementStatusToTrue(id);
+        }
+
         public void Delete(Announcement entity)
         {
             _announcementDAL.Delete(entity);

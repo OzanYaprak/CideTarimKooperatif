@@ -34,8 +34,19 @@
                         <a asp-controller="Announcement" asp-action="EditAnnouncement" asp-route-id="@item.AnnouncementID" class="ms-2 btn btn-rounded btn-block btn-warning">Güncelle</a>
                     </td>
                     <td>
-                        <a asp-controller="Announcement" asp-action="DeleteAnnouncement" asp-route-id="@item.AnnouncementID" class="btn btn-rounded btn-block btn-success">Aktif</a>
-                        <a asp-controller="Announcement" asp-action="EditAnnouncement" asp-route-id="@item.AnnouncementID" class="ms-2 btn btn-rounded btn-block btn-danger">Pasif</a>
+                        @if (item.AnnouncementStatus == true)
+                        {
+                            <a asp-controller="Announcement" asp-action="ChangeStatusToFalse" asp-route-id="@item.AnnouncementID" class="ms-2 btn btn-rounded btn-block btn-danger">Pasif yap</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Announcement" asp-action="ChangeStatusToTrue" asp-route-id="@item.AnnouncementID" class="btn btn-rounded btn-block btn-success">Aktif yap</a>
+                        }
+
+                        @*ALT KISIM İKİNCİ YÖNTEM*@
+
+                        @* <a asp-controller="Announcement" asp-action="ChangeStatusToTrue" asp-route-id="@item.AnnouncementID" class="btn btn-rounded btn-block btn-success">Aktif</a>
+                        <a asp-controller="Announcement" asp-action="ChangeStatusToFalse" asp-route-id="@item.AnnouncementID" class="ms-2 btn btn-rounded btn-block btn-danger">Pasif</a> *@
                     </td>
                 </tr>
             }
