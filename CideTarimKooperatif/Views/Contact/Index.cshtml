@@ -1,0 +1,53 @@
+﻿@model List<Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title text-center">Mesaj listesi</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="text-center">
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-success text-center" role="alert">
+                                @ViewBag.Error
+                            </div>
+                        }
+                        else
+                        {
+                            <tr>
+                                <th>#</th>
+                                <th>Ad Soyad</th>
+                                <th>Mail</th>
+                                <th>Tarih</th>
+                                <th>Mesajı Gör</th>
+                            </tr>
+                        }
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="text-center">
+                                <td>@item.ContactID</td>
+                                <td>@item.ContactName</td>
+                                <td>@item.ContactMail</td>
+                                <td>@item.ContactDate</td>
+                                <td>
+                                    <a asp-controller="Contact" asp-action="MessageDetails" asp-route-id="@item.ContactID" class="btn btn-rounded btn-block btn-secondary">Mesajı Gör</a>
+                                    <a asp-controller="Contact" asp-action="DeleteMessage" asp-route-id="@item.ContactID" class="btn btn-rounded btn-block btn-danger">Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @* <a asp-controller="Team" asp-action="AddNewTeamMember" class="btn btn-rounded btn-block btn-success mt-3 text-white" style="width:100%;">Yeni Personel Ekle</a> *@
+            </div>
+        </div>
+    </div>
+</div>

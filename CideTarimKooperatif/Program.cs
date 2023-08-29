@@ -30,6 +30,9 @@ namespace CideTarimKooperatif
             builder.Services.AddScoped<IAddressService, AddressManager>();
             builder.Services.AddScoped<IAddressDAL, EFAddressDAL>();
 
+            builder.Services.AddScoped<IContactService, ContactManager>();
+            builder.Services.AddScoped<IContactDAL, EFContactDAL>();
+
             builder.Services.AddDbContext<CideTarýmDB>();
 
             var app = builder.Build();

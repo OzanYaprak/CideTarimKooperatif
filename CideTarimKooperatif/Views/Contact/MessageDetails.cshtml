@@ -1,0 +1,42 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <h4 class="text-center mt-4">Mesaj Detay</h4>
+        <div class="card-body">
+            <form asp-controller="Team" asp-action="EditTeamMember" method="post">
+                @*<div asp-validation-summary="All"></div>*@
+                <input type="hidden" asp-for="ContactID" />
+
+                <div class="form-group">
+                    <label asp-for="ContactName">Ad/Soyad</label>
+                    <input asp-for="ContactName" type="text" class="form-control" id="contactname">
+                    <span asp-validation-for="ContactName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactMail">Mail Adresi</label>
+                    <input asp-for="ContactMail" type="email" class="form-control" id="contactmail">
+                    <span asp-validation-for="ContactMail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactMail">Gönderim Tarihi</label>
+                    <input asp-for="ContactMail" type="text" class="form-control" id="contactmail">
+                    <span asp-validation-for="ContactMail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactMessage">Mesaj Detayı</label>
+                    <textarea asp-for="ContactMessage" cols="5" rows="20" class="form-control" id="contactmessage"></textarea>
+                    <span asp-validation-for="ContactMessage" class="text-danger"></span>
+                </div>
+
+                <a asp-controller="Contact" asp-action="Index" class="btn btn-rounded btn-info mt-3 text-white" style="width: 100%;">Geri dön</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
