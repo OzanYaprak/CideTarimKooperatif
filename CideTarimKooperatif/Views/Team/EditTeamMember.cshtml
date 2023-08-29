@@ -1,15 +1,16 @@
 ﻿@model Team
 @{
-    ViewData["Title"] = "AddNewTeamMember";
+    ViewData["Title"] = "EditTeamMember";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
-        <h4 class="text-center mt-4">Yeni personel girişi</h4>
+        <h4 class="text-center mt-4">Personel düzenleme</h4>
         <div class="card-body">
-            <form asp-controller="Team" asp-action="AddNewTeamMember" method="post">
+            <form asp-controller="Team" asp-action="EditTeamMember" method="post">
                 @*<div asp-validation-summary="All"></div>*@
+                <input type="hidden" asp-for="PersonID" />
 
                 <div class="form-group">
                     <label asp-for="PersonName">Personel Ad/Soyad</label>
@@ -54,3 +55,4 @@
         </div>
     </div>
 </div>
+

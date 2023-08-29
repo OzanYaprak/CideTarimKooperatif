@@ -28,6 +28,10 @@ namespace CideTarimKooperatif.Controllers
             return View(teamList);
         }
 
+
+
+
+
         [HttpGet]
         public IActionResult AddNewTeamMember()
         {
@@ -54,5 +58,78 @@ namespace CideTarimKooperatif.Controllers
             return View();
 
         }
+
+
+
+
+        public IActionResult DeleteTeamMember(int id)
+        {
+            var deletedMember = _teamService.GetByID(id);
+
+            _teamService.Delete(deletedMember);
+
+            return RedirectToAction("Index");
+        }
+
+
+
+        [HttpGet]
+        public IActionResult EditTeamMember(int id)
+        {
+            var editedMember = _teamService.GetByID(id);
+
+            return View(editedMember);
+        }
+        [HttpPost]
+        public IActionResult EditTeamMember(Team team)
+        {
+            TeamValidator teamValidator = new TeamValidator();
+            ValidationResult validationResult = teamValidator.Validate(team);
+
+            if (validationResult.IsValid)
+            {
+                _teamService.Update(team);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

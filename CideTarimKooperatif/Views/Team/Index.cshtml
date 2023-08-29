@@ -53,8 +53,8 @@
                                 <td>@item.PersonName</td>
                                 <td>@item.PersonTitle</td>
                                 <td>
-                                    <a asp-controller="Team" asp-action="DeleteTeam" asp-route-id="@item.PersonID" class="btn btn-rounded btn-block btn-danger">Sil</a>
-                                    <a asp-controller="Team" asp-action="EditTeam" asp-route-id="@item.PersonID" class="ms-2 btn btn-rounded btn-block btn-warning">Güncelle</a>
+                                    <a asp-controller="Team" asp-action="DeleteTeamMember" asp-route-id="@item.PersonID" class="btn btn-rounded btn-block btn-danger">Sil</a>
+                                    <a asp-controller="Team" asp-action="EditTeamMember" asp-route-id="@item.PersonID" class="ms-2 btn btn-rounded btn-block btn-warning">Güncelle</a>
                                 </td>
                             </tr>
                         }
