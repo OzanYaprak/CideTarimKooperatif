@@ -19,6 +19,8 @@ namespace CideTarimKooperatif.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.MenuIndex = 1;
+
             var serviceList = _serviceService.GetAll();
 
             return View(serviceList);

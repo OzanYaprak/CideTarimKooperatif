@@ -21,6 +21,8 @@ namespace CideTarimKooperatif.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.MenuIndex = 5;
+
             var announcements = _announcementService.GetAll();
 
             if (announcements.Count == 0)

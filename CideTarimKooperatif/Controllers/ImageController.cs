@@ -18,6 +18,8 @@ namespace CideTarimKooperatif.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.MenuIndex = 3;
+
             var images = _imageService.GetAll();
 
             if (images.Count == 0)

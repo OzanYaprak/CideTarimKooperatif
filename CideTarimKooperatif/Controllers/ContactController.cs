@@ -16,6 +16,8 @@ namespace CideTarimKooperatif.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.MenuIndex = 4;
+
             var messages = _contactService.GetAll();
 
             if (messages.Count == 0)

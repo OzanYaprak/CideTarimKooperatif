@@ -3,29 +3,25 @@
 
 <!DOCTYPE html>
 <html lang="tr">
-
+@* Header Partial *@
 @await Html.PartialAsync("~/Views/AdminPartials/PartialHead.cshtml")
-
-
 <body>
     <div class="container-scroller">
-        <!-- partial:~/admin/template/partials/_navbar.html -->
+        @* Navbar Partial *@
         @await Html.PartialAsync("~/Views/AdminPartials/PartialNavbar.cshtml")
-        <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:~/admin/template/partials/_sidebar.html -->
+            @* Sidebar Partial *@
             @await Html.PartialAsync("~/Views/AdminPartials/PartialSidebar.cshtml")
-            <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
                     @RenderBody()
                 </div>
-                <!-- partial:~/admin/template/partials/_footer.html -->
+                @* Footer Partial *@
                 @await Html.PartialAsync("~/Views/AdminPartials/PartialFooter.cshtml")
-                <!-- partial -->
             </div>
         </div>
     </div>
+    @* Scripts Partial *@
     @await Html.PartialAsync("~/Views/AdminPartials/PartialScripts.cshtml")
 </body>
 

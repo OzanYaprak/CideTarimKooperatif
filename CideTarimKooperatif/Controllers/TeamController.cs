@@ -20,6 +20,8 @@ namespace CideTarimKooperatif.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.MenuIndex = 2;
+
             var teamList = _teamService.GetAll();
             if (teamList.Count == 0)
             {

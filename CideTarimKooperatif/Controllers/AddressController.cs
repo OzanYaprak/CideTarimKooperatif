@@ -19,6 +19,8 @@ namespace CideTarimKooperatif.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.MenuIndex = 6;
+
             var addressList = _addressService.GetAll();
             if (addressList.Count == 0)
             {

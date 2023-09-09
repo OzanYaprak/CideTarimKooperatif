@@ -15,6 +15,8 @@ namespace CideTarimKooperatif.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.MenuIndex = 0;
+
             return View();
         }
 
