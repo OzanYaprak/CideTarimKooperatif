@@ -33,6 +33,9 @@ namespace CideTarimKooperatif
             builder.Services.AddScoped<IContactService, ContactManager>();
             builder.Services.AddScoped<IContactDAL, EFContactDAL>();
 
+            builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
+            builder.Services.AddScoped<ISocialMediaDAL, EFSocialMediaDAL>();
+
             builder.Services.AddDbContext<CideTarýmDB>();
 
             var app = builder.Build();

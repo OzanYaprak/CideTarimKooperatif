@@ -1,4 +1,5 @@
-﻿using EntityLayer.Concrete;
+﻿using EntityLayer;
+using EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -21,5 +22,6 @@ namespace DataAccessLayer.Contexts
         public DbSet<Announcement> Announcements { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<SocialMedia> SocialMedias { get; set; }
     }
 }
